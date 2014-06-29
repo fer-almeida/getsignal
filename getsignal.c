@@ -67,7 +67,8 @@ int main(void) {
 		"SIGPOLL",
 		"SIGPWR",
 		"SIGSYS"
-	}
+	};
+	
 	int i;
 	
 	if(LOGERROR) printf("Iniciando handlers:\n");
