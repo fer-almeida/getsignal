@@ -35,7 +35,7 @@ void sig_handler(int signo) {
 }
 
 int main(void) {
-	char** sigtable = {
+	char* sigtable[31] = {
 		"SIGHUP",
 		"SIGINT",
 		"SIGQUIT",
