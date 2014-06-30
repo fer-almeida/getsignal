@@ -74,7 +74,7 @@ int main(void) {
 	if(LOGERROR) printf("Iniciando handlers:\n");
 	
 	for(i = 1; i <= 31; i++) {
-		if(signal(i, sig_handler) == SIGERR) if(LOGERROR) printf("Erro ao iniciar handler [%s]\n", sigtable[i - 1]);
+		if(signal(i, sig_handler) == SIG_ERR) if(LOGERROR) printf("Erro ao iniciar handler [%s]\n", sigtable[i - 1]);
 	}
 	
 	printf("Programa principal rodando...\n");
