@@ -70,13 +70,13 @@ void sig_handler(int signo) {
 int main(void) {
 	int i;
 	
-	if(LOGERROR) printf("Iniciando handlers:\n");
+	if(LOGERROR) printf("\nErros ao iniciar Handlers:\n");
 	
 	for(i = 1; i <= 31; i++) {
-		if(signal(i, sig_handler) == SIG_ERR) if(LOGERROR) printf("\tErro ao iniciar handler [%s]\n", sigtable[i - 1]);
+		if(signal(i, sig_handler) == SIG_ERR) if(LOGERROR) printf("\t[%s]\n", sigtable[i - 1]);
 	}
 	
-	printf("Programa principal rodando...\n");
+	printf("\nPrograma principal rodando...\n");
 	
 	while(1)  {
 		sleep(1); // Outras funções do programa
