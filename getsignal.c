@@ -63,7 +63,7 @@ void sig_handler(int signo) {
 			printf("SIGUSR2\nUser-defined signal 2\n");
 			break;
 		default :
-			printf("SIGNAL [%s]\n", sigtable[signo]);
+			printf("SIGNAL [%s]\n", sigtable[signo - 1]);
 		}
 }
 
