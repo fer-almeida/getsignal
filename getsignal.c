@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdbool.h>
 #include <signal.h> // Para as constantes de signal handler
 #include <unistd.h>
 
 #define MAJOR_VERSION	1
 #define MINOR_VERSION	1
 
-#define LOGERROR	1 //Exibe as informações de erro
+#define LOGERROR	TRUE //Exibe as informações de erro
 
 char* sigtable[31] = {
 	"01 SIGHUP",
