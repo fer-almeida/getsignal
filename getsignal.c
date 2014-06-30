@@ -9,6 +9,40 @@
 
 #define LOGERROR	1 //Exibe as informações de erro
 
+char* sigtable[31] = {
+	"01: SIGHUP",
+	"02: SIGINT",
+	"03: SIGQUIT",
+	"04: SIGILL",
+	"05: SIGTRAP/SIGABRT",
+	"06: SIGIOT",
+	"07: SIGBUS",
+	"08: SIGFPE",
+	"09: SIGKILL",
+	"10: SIGUSR1",
+	"11: SIGEVG",
+	"12: SIGUSR2",
+	"13: SIGPIPE",
+	"14: SIGALRM",
+	"15: SIGTERM",
+	"16: SIGKFLT/SIGCHLD",
+	"17: SIGCLT",
+	"18: SIGCONT",
+	"19: SIGSTOP",
+	"20: SIGTSTP",
+	"21: SIGTTIN",
+	"22: SIGTTOUT",
+	"23: SIGURG",
+	"24: SIGXCPU",
+	"25: SIGXFSZ",
+	"26: SIGVTALRM",
+	"27: SIGPROF",
+	"28: SIGWINCH/SIGIO",
+	"29: SIGPOLL",
+	"30: SIGPWR",
+	"31: SIGSYS"
+};
+
 void sig_handler(int signo) {
 	switch(signo) {
 		case SIGINT :
@@ -30,51 +64,17 @@ void sig_handler(int signo) {
 			printf("SIGUSR2\nUser-defined signal 2\n");
 			break;
 		default :
-			printf("SIGNAL %d\n", signo);
+			printf("SIGNAL [%s]\n", sigtable[signo]);
 		}
 }
 
 int main(void) {
-	char* sigtable[31] = {
-		"SIGHUP",
-		"SIGINT",
-		"SIGQUIT",
-		"SIGILL",
-		"SIGTRAP/SIGABRT",
-		"SIGIOT",
-		"SIGBUS",
-		"SIGFPE",
-		"SIGKILL",
-		"SIGUSR1",
-		"SIGEVG",
-		"SIGUSR2",
-		"SIGPIPE",
-		"SIGALRM",
-		"SIGTERM",
-		"SIGKFLT/SIGCHLD",
-		"SIGCLT",
-		"SIGCONT",
-		"SIGSTOP",
-		"SIGTSTP",
-		"SIGTTIN",
-		"SIGTTOUT",
-		"SIGURG",
-		"SIGXCPU",
-		"SIGXFSZ",
-		"SIGVTALRM",
-		"SIGPROF",
-		"SIGWINCH/SIGIO",
-		"SIGPOLL",
-		"SIGPWR",
-		"SIGSYS"
-	};
-	
 	int i;
 	
 	if(LOGERROR) printf("Iniciando handlers:\n");
 	
 	for(i = 1; i <= 31; i++) {
-		if(signal(i, sig_handler) == SIGERR) if(LOGERROR) printf("Erro ao iniciar handler %s\n", sigtable[i - 1]);
+		if(signal(i, sig_handler) == SIGERR) if(LOGERROR) printf("Erro ao iniciar handler [%s]\n", sigtable[i - 1]);
 	}
 	
 	printf("Programa principal rodando...\n");
