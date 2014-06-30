@@ -7,7 +7,7 @@
 #define MAJOR_VERSION	1
 #define MINOR_VERSION	1
 
-#define LOGERROR	0 //Exibe as informações de erro
+#define LOGERROR	1 //Exibe as informações de erro
 
 char* sigtable[31] = {
 	"01 SIGHUP",
